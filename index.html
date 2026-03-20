@@ -121,23 +121,16 @@ dumb stupid water bottle shut the fuck up
 </section>
 
 <section>
-
 <h2>Photo Memories 📸</h2>
-
 <div class="gallery">
-
 <script>
-
 for(let i=1;i<=46;i++){
-document.write('<img src="photos/'+i+'.jpg">');
+    // Checks for both .jpg and .JPG automatically
+    document.write('<img src="photos/'+i+'.jpg" onerror="this.src=\'photos/'+i+'.JPG\'">');
 }
-
 </script>
-
 </div>
-
 </section>
-
 
 <section>
 <h2>Reasons I Love You 💗</h2>
@@ -145,18 +138,10 @@ document.write('<img src="photos/'+i+'.jpg">');
 <p id="love"></p>
 </section>
 
+<!-- Audio player for your song.mp3 file -->
 <audio id="bgMusic" loop>
   <source src="song.mp3" type="audio/mpeg">
 </audio>
-
-<script>
-  // Browsers block auto-play until the user clicks something.
-  // This starts the music the moment they click anywhere on your site!
-  document.addEventListener('click', function() {
-    var audio = document.getElementById('bgMusic');
-    audio.play();
-  }, { once: true }); // Only runs on the first click
-</script>
 
 <section>
 <h2>A Message For You</h2>
@@ -170,6 +155,12 @@ im never leaving you
 </section>
 
 <script>
+// Music Autoplay Trigger
+document.addEventListener('click', function() {
+    var audio = document.getElementById('bgMusic');
+    audio.play();
+}, { once: true });
+
 setTimeout(()=>{
 document.getElementById("loading").style.display="none";
 },2000);
