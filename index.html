@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Madisyn 💜</title>
+
+<style>
+
+body{
+background: linear-gradient(135deg,#ffd6f7,#d9b3ff);
+font-family: "Comic Sans MS", cursive;
+text-align:center;
+color:#5a2b8c;
+overflow-x:hidden;
+}
+
+h1{
+font-size:50px;
+animation: fadein 3s;
+}
+
+.section{
+margin:80px;
+padding:30px;
+background:white;
+border-radius:20px;
+box-shadow:0 0 20px pink;
+animation: float 6s infinite ease-in-out;
+}
+
+@keyframes float{
+0%{transform:translateY(0px)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0px)}
+}
+
+.unicorn{
+position:fixed;
+font-size:30px;
+animation: floaty 10s linear infinite;
+}
+
+@keyframes floaty{
+0%{top:100%;opacity:0}
+50%{opacity:1}
+100%{top:-10%;opacity:0}
+}
+
+button{
+background:#ff9df7;
+border:none;
+padding:15px;
+border-radius:15px;
+font-size:18px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Madisyn 🦄</h1>
+
+<div class="section">
+<h2>My Sweet Baby Girl</h2>
+<p>
+my sweet baby girl this is for our love so we can see our memories and other stuff
+</p>
+</div>
+
+<div class="section">
+<h2>How Long We've Been Together</h2>
+<p id="timer"></p>
+</div>
+
+<div class="section">
+<h2>About Madisyn</h2>
+<p>
+Favorite Colors: Pink & Purple <br>
+Favorite Animal: Unicorn 🦄 <br>
+Favorite Food: Pickles & Iced Animal Crackers <br>
+Favorite Drink: Juice <br>
+Favorite Show: Nana <br>
+Favorite Place: The beach or her bed <br>
+Dream: To become a phitritian helping people with medicine
+</p>
+</div>
+
+<div class="section">
+<h2>Things She Loves</h2>
+<p>
+Cats, Dogs, Ducks, Resident Evil, Watching my streams, Making TikToks,
+My Little Pony, Unicorns, Roblox, Painting with glitter
+</p>
+</div>
+
+<div class="section">
+<h2>Our Memories</h2>
+<p>
+We met online through one of my streams.<br><br>
+My favorite memory is when she trusted me with her past.<br><br>
+Funniest moment: when her cat Salem reached his paw up on her while she was laying down.
+</p>
+</div>
+
+<div class="section">
+<h2>Nicknames</h2>
+<p>
+Mabi • Bear • My Sweet Girl • Baby Girl • Princess
+</p>
+</div>
+
+<div class="section">
+<h2>Inside Jokes</h2>
+<p>
+for serious <br>
+dumb stupid water bottle shut the fuck up <br>
+oh haiii dere
+</p>
+</div>
+
+<div class="section">
+<h2>A Message For You</h2>
+<p>
+My dearest Madisyn, you mean so much to me baby.  
+You're my amazing sweet beautiful girl and I love you so much.  
+You make my life better and even when things are hard we will get through them together.  
+I'm never leaving you. I love how caring you are about people.
+</p>
+</div>
+
+<div class="section">
+<h2>Secret Button</h2>
+<button onclick="secret()">Click Me 🦄</button>
+<p id="secret"></p>
+</div>
+
+<script>
+
+var start = new Date("Feb 2 2026 00:00:00").getTime();
+
+setInterval(function(){
+
+var now = new Date().getTime();
+var diff = now - start;
+
+var days = Math.floor(diff / (1000*60*60*24));
+var hours = Math.floor((diff % (1000*60*60*24))/(1000*60*60));
+var minutes = Math.floor((diff % (1000*60*60))/(1000*60));
+var seconds = Math.floor((diff % (1000*60))/1000);
+
+document.getElementById("timer").innerHTML =
+days+" days "+hours+" hours "+minutes+" minutes "+seconds+" seconds";
+
+},1000);
+
+function secret(){
+document.getElementById("secret").innerHTML =
+"I love you more every single second 💜";
+}
+
+</script>
+
+</body>
+</html>
