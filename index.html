@@ -121,16 +121,23 @@ dumb stupid water bottle shut the fuck up
 </section>
 
 <section>
+
 <h2>Photo Memories 📸</h2>
+
 <div class="gallery">
+
 <script>
-/* REVERTED TO YOUR ORIGINAL IMAGE CODE */
+
 for(let i=1;i<=46;i++){
 document.write('<img src="photos/'+i+'.jpg">');
 }
+
 </script>
+
 </div>
+
 </section>
+
 
 <section>
 <h2>Reasons I Love You 💗</h2>
@@ -138,7 +145,7 @@ document.write('<img src="photos/'+i+'.jpg">');
 <p id="love"></p>
 </section>
 
-<!-- HIDDEN MUSIC PLAYER -->
+<!-- Audio player for your song.mp3 file -->
 <audio id="bgMusic" loop>
   <source src="song.mp3" type="audio/mpeg">
 </audio>
@@ -155,12 +162,6 @@ im never leaving you
 </section>
 
 <script>
-/* MUSIC START SCRIPT */
-document.addEventListener('click', function() {
-    var audio = document.getElementById('bgMusic');
-    audio.play();
-}, { once: true });
-
 setTimeout(()=>{
 document.getElementById("loading").style.display="none";
 },2000);
