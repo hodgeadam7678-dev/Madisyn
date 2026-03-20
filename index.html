@@ -1,57 +1,97 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Madisyn 💜</title>
+
+<title>Madisyn 🦄💜</title>
 
 <style>
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
-background: linear-gradient(135deg,#ffd6f7,#d9b3ff);
-font-family: "Comic Sans MS", cursive;
+margin:0;
+font-family:"Comic Sans MS",cursive;
+color:#5b2b8c;
 text-align:center;
-color:#5a2b8c;
 overflow-x:hidden;
+background:linear-gradient(270deg,#ffd6f7,#d5b3ff,#ffc0f7);
+background-size:600% 600%;
+animation:gradient 12s ease infinite;
 }
 
-h1{
-font-size:50px;
-animation: fadein 3s;
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
-.section{
-margin:80px;
-padding:30px;
+header{
+font-size:55px;
+padding:80px;
+}
+
+section{
+margin:70px auto;
+padding:40px;
+width:80%;
 background:white;
-border-radius:20px;
-box-shadow:0 0 20px pink;
-animation: float 6s infinite ease-in-out;
+border-radius:25px;
+box-shadow:0 0 25px pink;
+transition:.3s;
 }
 
-@keyframes float{
-0%{transform:translateY(0px)}
-50%{transform:translateY(-10px)}
-100%{transform:translateY(0px)}
+section:hover{
+transform:scale(1.03);
+}
+
+h2{
+font-size:32px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:20px;
+transition:.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.1);
+}
+
+button{
+padding:15px 25px;
+border:none;
+background:#ff9df7;
+font-size:18px;
+border-radius:20px;
+cursor:pointer;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
 }
 
 .unicorn{
 position:fixed;
 font-size:30px;
-animation: floaty 10s linear infinite;
+animation:float 15s linear infinite;
 }
 
-@keyframes floaty{
-0%{top:100%;opacity:0}
-50%{opacity:1}
-100%{top:-10%;opacity:0}
-}
-
-button{
-background:#ff9df7;
-border:none;
-padding:15px;
-border-radius:15px;
-font-size:18px;
-cursor:pointer;
+@keyframes float{
+0%{left:-10%;top:20%}
+100%{left:110%;top:60%}
 }
 
 </style>
@@ -60,105 +100,244 @@ cursor:pointer;
 
 <body>
 
-<h1>Madisyn 🦄</h1>
+<div id="loading" style="position:fixed;background:#ffd6f7;width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:40px;z-index:9999;">
+Entering Madisyn's magical world 🦄
+</div>
 
-<div class="section">
+<canvas id="sparkles"></canvas>
+
+<header>
+Madisyn 🦄💜
+</header>
+
+<section>
+
 <h2>My Sweet Baby Girl</h2>
+
 <p>
 my sweet baby girl this is for our love so we can see our memories and other stuff
 </p>
-</div>
 
-<div class="section">
+</section>
+
+<section>
+
 <h2>How Long We've Been Together</h2>
+
 <p id="timer"></p>
-</div>
 
-<div class="section">
-<h2>About Madisyn</h2>
-<p>
-Favorite Colors: Pink & Purple <br>
-Favorite Animal: Unicorn 🦄 <br>
-Favorite Food: Pickles & Iced Animal Crackers <br>
-Favorite Drink: Juice <br>
-Favorite Show: Nana <br>
-Favorite Place: The beach or her bed <br>
-Dream: To become a phitritian helping people with medicine
-</p>
-</div>
+</section>
 
-<div class="section">
-<h2>Things She Loves</h2>
-<p>
-Cats, Dogs, Ducks, Resident Evil, Watching my streams, Making TikToks,
-My Little Pony, Unicorns, Roblox, Painting with glitter
-</p>
-</div>
+<section>
 
-<div class="section">
+<h2>About You</h2>
+
+Favorite colors: pink & purple <br>
+Favorite animal: unicorn 🦄 <br>
+Favorite foods: pickles & iced animal crackers <br>
+Favorite drink: juice <br>
+Favorite show: Nana <br>
+Favorite place: beach or your bed <br>
+Dream: becoming a phitritian helping people
+
+</section>
+
+<section>
+
+<h2>Things You Love</h2>
+
+cats • dogs • ducks • resident evil • watching my streams  
+making tiktoks • my little pony • unicorns • roblox  
+painting with glitter
+
+</section>
+
+<section>
+
 <h2>Our Memories</h2>
-<p>
-We met online through one of my streams.<br><br>
-My favorite memory is when she trusted me with her past.<br><br>
-Funniest moment: when her cat Salem reached his paw up on her while she was laying down.
-</p>
-</div>
 
-<div class="section">
+We met through one of my streams.<br><br>
+
+My favorite memory is when you trusted me with your past.<br><br>
+
+Funniest moment was when Salem reached up while you were laying down.
+
+</section>
+
+<section>
+
 <h2>Nicknames</h2>
-<p>
-Mabi • Bear • My Sweet Girl • Baby Girl • Princess
-</p>
-</div>
 
-<div class="section">
+mabi • bear • my sweet girl • baby girl • princess
+
+</section>
+
+<section>
+
 <h2>Inside Jokes</h2>
-<p>
+
 for serious <br>
-dumb stupid water bottle shut the fuck up <br>
-oh haiii dere
-</p>
-</div>
+dumb stupid water bottle shut the fuck up
 
-<div class="section">
-<h2>A Message For You</h2>
-<p>
-My dearest Madisyn, you mean so much to me baby.  
-You're my amazing sweet beautiful girl and I love you so much.  
-You make my life better and even when things are hard we will get through them together.  
-I'm never leaving you. I love how caring you are about people.
-</p>
-</div>
+</section>
 
-<div class="section">
-<h2>Secret Button</h2>
-<button onclick="secret()">Click Me 🦄</button>
-<p id="secret"></p>
-</div>
+<section>
+
+<h2>Photo Memories 📸</h2>
+
+<div class="gallery">
 
 <script>
 
-var start = new Date("Feb 2 2026 00:00:00").getTime();
+for(let i=1;i<=46;i++){
+document.write('<img src="photos/'+i+'.jpg">');
+}
+
+</script>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Reasons I Love You 💗</h2>
+
+<button onclick="love()">Generate</button>
+
+<p id="love"></p>
+
+</section>
+
+<section>
+
+<h2>Our Song</h2>
+
+<iframe width="320" height="180"
+src="https://www.youtube.com/embed/1qvYHnq4H3E"
+allow="autoplay">
+</iframe>
+
+</section>
+
+<section>
+
+<h2>A Message For You</h2>
+
+<p>
+
+my dearest madisyn you mean so much to me baby  
+you're my amazing sweet beautiful girl and i love you so much  
+
+you make my life better and even when things are hard  
+i promise we will get through them together  
+
+im never leaving you  
+
+</p>
+
+</section>
+
+<script>
+
+setTimeout(()=>{
+document.getElementById("loading").style.display="none";
+},2000);
+
+
+var start=new Date("Feb 2 2026 00:00:00").getTime();
 
 setInterval(function(){
 
-var now = new Date().getTime();
-var diff = now - start;
+var now=new Date().getTime();
+var diff=now-start;
 
-var days = Math.floor(diff / (1000*60*60*24));
-var hours = Math.floor((diff % (1000*60*60*24))/(1000*60*60));
-var minutes = Math.floor((diff % (1000*60*60))/(1000*60));
-var seconds = Math.floor((diff % (1000*60))/1000);
+var d=Math.floor(diff/(1000*60*60*24));
+var h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+var m=Math.floor((diff%(1000*60*60))/(1000*60));
+var s=Math.floor((diff%(1000*60))/1000);
 
-document.getElementById("timer").innerHTML =
-days+" days "+hours+" hours "+minutes+" minutes "+seconds+" seconds";
+document.getElementById("timer").innerHTML=
+d+" days "+h+" hours "+m+" minutes "+s+" seconds";
 
 },1000);
 
-function secret(){
-document.getElementById("secret").innerHTML =
-"I love you more every single second 💜";
+
+const canvas=document.getElementById("sparkles");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+
+document.addEventListener("mousemove",e=>{
+for(let i=0;i<4;i++){
+particles.push({
+x:e.clientX,
+y:e.clientY,
+size:Math.random()*4,
+life:100
+});
 }
+});
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach((p,i)=>{
+
+p.life--;
+p.size*=0.96;
+
+ctx.fillStyle="white";
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+ctx.fill();
+
+if(p.life<=0)particles.splice(i,1);
+
+});
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+
+let reasons=[
+"your beautiful eyes",
+"how caring you are",
+"the way you call me sweet handsome baby boy",
+"your personality",
+"how you trust me",
+"how sweet you are",
+"how you make my life better",
+"how cute you are",
+"the way you laugh"
+];
+
+function love(){
+
+document.getElementById("love").innerHTML=
+reasons[Math.floor(Math.random()*reasons.length)];
+
+}
+
+document.addEventListener("click",e=>{
+let heart=document.createElement("div");
+heart.innerHTML="💜";
+heart.style.position="fixed";
+heart.style.left=e.clientX+"px";
+heart.style.top=e.clientY+"px";
+heart.style.fontSize="20px";
+heart.style.pointerEvents="none";
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),800);
+});
 
 </script>
 
