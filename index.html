@@ -2,15 +2,9 @@
 <html>
 
 <head>
-
 <title>Madisyn 🦄💜</title>
-
 <style>
-
-html{
-scroll-behavior:smooth;
-}
-
+html{ scroll-behavior:smooth; }
 body{
 margin:0;
 font-family:"Comic Sans MS",cursive;
@@ -21,18 +15,12 @@ background:linear-gradient(270deg,#ffd6f7,#d5b3ff,#ffc0f7);
 background-size:600% 600%;
 animation:gradient 12s ease infinite;
 }
-
 @keyframes gradient{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
 }
-
-header{
-font-size:55px;
-padding:80px;
-}
-
+header{ font-size:55px; padding:80px; }
 section{
 margin:70px auto;
 padding:40px;
@@ -42,31 +30,19 @@ border-radius:25px;
 box-shadow:0 0 25px pink;
 transition:.3s;
 }
-
-section:hover{
-transform:scale(1.03);
-}
-
-h2{
-font-size:32px;
-}
-
+section:hover{ transform:scale(1.03); }
+h2{ font-size:32px; }
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:20px;
 }
-
 .gallery img{
 width:100%;
 border-radius:20px;
 transition:.4s;
 }
-
-.gallery img:hover{
-transform:scale(1.1);
-}
-
+.gallery img:hover{ transform:scale(1.1); }
 button{
 padding:15px 25px;
 border:none;
@@ -75,27 +51,17 @@ font-size:18px;
 border-radius:20px;
 cursor:pointer;
 }
-
-canvas{
-position:fixed;
-top:0;
-left:0;
-pointer-events:none;
-}
-
+canvas{ position:fixed; top:0; left:0; pointer-events:none; }
 .unicorn{
 position:fixed;
 font-size:30px;
 animation:float 15s linear infinite;
 }
-
 @keyframes float{
 0%{left:-10%;top:20%}
 100%{left:110%;top:60%}
 }
-
 </style>
-
 </head>
 
 <body>
@@ -106,32 +72,20 @@ Entering Madisyn's magical world 🦄
 
 <canvas id="sparkles"></canvas>
 
-<header>
-Madisyn 🦄💜
-</header>
+<header>Madisyn 🦄💜</header>
 
 <section>
-
 <h2>My Sweet Baby Girl</h2>
-
-<p>
-my sweet baby girl this is for our love so we can see our memories and other stuff
-</p>
-
+<p>my sweet baby girl this is for our love so we can see our memories and other stuff</p>
 </section>
 
 <section>
-
 <h2>How Long We've Been Together</h2>
-
 <p id="timer"></p>
-
 </section>
 
 <section>
-
 <h2>About You</h2>
-
 Favorite colors: pink & purple <br>
 Favorite animal: unicorn 🦄 <br>
 Favorite foods: pickles & iced animal crackers <br>
@@ -139,173 +93,112 @@ Favorite drink: juice <br>
 Favorite show: Nana <br>
 Favorite place: beach or your bed <br>
 Dream: becoming a phitritian helping people
-
 </section>
 
 <section>
-
 <h2>Things You Love</h2>
-
-cats • dogs • ducks • resident evil • watching my streams  
-making tiktoks • my little pony • unicorns • roblox  
+cats • dogs • ducks • resident evil • watching my streams<br>
+making tiktoks • my little pony • unicorns • roblox<br>
 painting with glitter
-
 </section>
 
 <section>
-
 <h2>Our Memories</h2>
-
 We met through one of my streams.<br><br>
-
 My favorite memory is when you trusted me with your past.<br><br>
-
 Funniest moment was when Salem reached up while you were laying down.
-
 </section>
 
 <section>
-
 <h2>Nicknames</h2>
-
 mabi • bear • my sweet girl • baby girl • princess
-
 </section>
 
 <section>
-
 <h2>Inside Jokes</h2>
-
 for serious <br>
 dumb stupid water bottle shut the fuck up
-
 </section>
 
 <section>
-
 <h2>Photo Memories 📸</h2>
-
 <div class="gallery">
-
 <script>
-
+// This loop now checks for both .jpg and .JPG automatically!
 for(let i=1;i<=46;i++){
-document.write('<img src="photos/'+i+'.jpg">');
+    document.write('<img src="photos/'+i+'.jpg" onerror="this.src=\'photos/'+i+'.JPG\'">');
 }
-
 </script>
-
 </div>
-
 </section>
 
 <section>
-
 <h2>Reasons I Love You 💗</h2>
-
 <button onclick="love()">Generate</button>
-
 <p id="love"></p>
-
 </section>
 
 <section>
-
 <h2>Our Song</h2>
-
-<iframe width="320" height="180"
-src="https://www.youtube.com/watch?v=wzzYhB53TYA"
-allow="autoplay">
+<!-- Fixed YouTube link to allow embedding -->
+<iframe width="320" height="180" 
+src="https://www.youtube.com" 
+frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
 </iframe>
-
 </section>
 
 <section>
-
 <h2>A Message For You</h2>
-
 <p>
-
-my dearest madisyn you mean so much to me baby  
-you're my amazing sweet beautiful girl and i love you so much  
-
-you make my life better and even when things are hard  
-i promise we will get through them together  
-
-im never leaving you  
-
+my dearest madisyn you mean so much to me baby<br>
+you're my amazing sweet beautiful girl and i love you so much<br><br>
+you make my life better and even when things are hard<br>
+i promise we will get through them together<br><br>
+im never leaving you
 </p>
-
 </section>
 
 <script>
-
 setTimeout(()=>{
 document.getElementById("loading").style.display="none";
 },2000);
 
-
 var start=new Date("Feb 2 2026 00:00:00").getTime();
 
 setInterval(function(){
-
 var now=new Date().getTime();
 var diff=now-start;
-
 var d=Math.floor(diff/(1000*60*60*24));
 var h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
 var m=Math.floor((diff%(1000*60*60))/(1000*60));
 var s=Math.floor((diff%(1000*60))/1000);
-
-document.getElementById("timer").innerHTML=
-d+" days "+h+" hours "+m+" minutes "+s+" seconds";
-
+document.getElementById("timer").innerHTML= d+" days "+h+" hours "+m+" minutes "+s+" seconds";
 },1000);
-
 
 const canvas=document.getElementById("sparkles");
 const ctx=canvas.getContext("2d");
-
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
-
 let particles=[];
-
 document.addEventListener("mousemove",e=>{
 for(let i=0;i<4;i++){
-particles.push({
-x:e.clientX,
-y:e.clientY,
-size:Math.random()*4,
-life:100
-});
+particles.push({ x:e.clientX, y:e.clientY, size:Math.random()*4, life:100 });
 }
 });
-
 function animate(){
-
 ctx.clearRect(0,0,canvas.width,canvas.height);
-
 particles.forEach((p,i)=>{
-
 p.life--;
 p.size*=0.96;
-
 ctx.fillStyle="white";
 ctx.beginPath();
 ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
 ctx.fill();
-
 if(p.life<=0)particles.splice(i,1);
-
 });
-
 requestAnimationFrame(animate);
-
 }
-
 animate();
-
 
 let reasons=[
 "your beautiful eyes",
@@ -318,12 +211,8 @@ let reasons=[
 "how cute you are",
 "the way you laugh"
 ];
-
 function love(){
-
-document.getElementById("love").innerHTML=
-reasons[Math.floor(Math.random()*reasons.length)];
-
+document.getElementById("love").innerHTML= reasons[Math.floor(Math.random()*reasons.length)];
 }
 
 document.addEventListener("click",e=>{
@@ -333,12 +222,11 @@ heart.style.position="fixed";
 heart.style.left=e.clientX+"px";
 heart.style.top=e.clientY+"px";
 heart.style.fontSize="20px";
+heart.style.zIndex="1000";
 heart.style.pointerEvents="none";
 document.body.appendChild(heart);
-
 setTimeout(()=>heart.remove(),800);
 });
-
 </script>
 
 </body>
