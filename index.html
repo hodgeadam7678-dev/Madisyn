@@ -1,335 +1,255 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Madisyn's Magical World 🦄💜</title>
+    <title>Madisyn + Adam ♾️</title>
     <style>
         html { scroll-behavior: smooth; }
-        
         body {
             margin: 0;
-            font-family: "Comic Sans MS", cursive, sans-serif;
-            color: #8e44ad;
+            padding-top: 80px; 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #c2185b;
             text-align: center;
             overflow-x: hidden;
-            /* Girly Animated Gradient */
-            background: linear-gradient(-45deg, #fff0f6, #f3e5f5, #ffdefa, #e1bee7);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background-color: #fff0f6;
+            /* Animated Polka Dots */
+            background-image: radial-gradient(#ffffff 25%, transparent 25%);
+            background-size: 50px 50px;
+            animation: polkaMove 30s linear infinite;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        @keyframes polkaMove {
+            from { background-position: 0 0; }
+            to { background-position: 100px 100px; }
         }
 
-        header {
-            font-size: 70px;
-            padding: 100px 20px;
-            color: #ff69b4;
-            text-shadow: 0 0 20px #fff, 0 0 30px #ffb6c1, 0 0 40px #ff69b4;
-            font-weight: bold;
-        }
-
-        section {
-            margin: 50px auto;
-            padding: 40px;
-            width: 85%;
-            max-width: 800px;
-            background: rgba(255, 255, 255, 0.8);
-            border: 3px solid #f3e5f5;
-            border-radius: 40px;
-            /* Neon Glow */
-            box-shadow: 0 0 20px #fff, 0 0 30px #f8bbd0;
-            transition: 0.4s;
-            position: relative;
-            z-index: 2;
-        }
-
-        section:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 0 40px #fce4ec, 0 0 60px #f8bbd0;
-            background: rgba(255, 255, 255, 0.95);
-        }
-
-        h2 {
-            font-size: 38px;
-            color: #ba68c8;
-            text-shadow: 2px 2px 5px #f8bbd0;
-            margin-bottom: 20px;
-        }
-
-        p, div { font-size: 20px; line-height: 1.6; }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            padding: 20px;
-        }
-
-        .gallery img {
-            width: 100%;
-            border-radius: 30px;
-            border: 5px solid white;
-            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
-            transition: 0.5s;
-        }
-
-        .gallery img:hover {
-            transform: rotate(3deg) scale(1.1);
-            box-shadow: 0 0 25px #ff69b4;
-        }
-
-        button {
-            padding: 20px 40px;
-            border: none;
-            background: linear-gradient(45deg, #ff9df7, #ba68c8);
-            color: white;
-            font-size: 22px;
-            font-family: "Comic Sans MS", cursive;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 0 15px #ff9df7;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px #ba68c8;
-        }
-
-        /* Floating Unicorn Rain */
-        .unicorn-float {
-            position: fixed;
-            top: -10%;
-            font-size: 40px;
-            z-index: 1;
-            user-select: none;
-            pointer-events: none;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            to { transform: translateY(110vh) rotate(360deg); }
-        }
-
-        canvas#sparkles {
+        /* Sticky Glass Menu */
+        nav {
             position: fixed;
             top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 999;
-        }
-
-        #timer {
-            font-weight: bold;
-            font-size: 24px;
-            color: #ff69b4;
-        }
-
-        .loading-screen {
-            position: fixed;
-            background: #fff0f6;
             width: 100%;
-            height: 100%;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            font-size: 40px;
-            z-index: 10000;
-            color: #ba68c8;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
+            z-index: 1000;
+        }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropbtn {
+            background: #ff85a2;
+            color: white;
+            padding: 12px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255, 133, 162, 0.4);
+            transition: 0.3s;
+        }
+        .dropbtn:hover { transform: scale(1.05); background: #ff4d6d; }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            margin-top: 10px;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .dropdown-content a {
+            color: #ad1457;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+        }
+
+        .dropdown-content a:hover { background-color: #fff0f6; color: #ff4d6d; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        header {
+            padding: 60px 20px;
+            font-size: 65px;
+            font-weight: 200;
+            color: #ff4d6d;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        /* Modern Glass Sections */
+        section {
+            margin: 60px auto;
+            padding: 60px;
+            width: 85%;
+            max-width: 950px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 40px;
+            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.15);
+            backdrop-filter: blur(15px);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease-out;
+        }
+
+        section.visible { opacity: 1; transform: translateY(0); }
+        h2 { font-size: 35px; color: #ff758f; margin-bottom: 30px; font-weight: 300; letter-spacing: 2px; }
+
+        /* Gallery Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 25px;
+            border: 8px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: 0.4s;
+        }
+        .gallery img:hover { transform: scale(1.08) rotate(2deg); z-index: 10; }
+
+        /* Bucket List / Recommendations */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .grid-box {
+            background: white;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(255, 182, 193, 0.1);
+            transition: 0.3s;
+        }
+        .grid-box:hover { transform: translateY(-5px); }
+
+        #timer { font-size: 32px; color: #ff4d6d; letter-spacing: 1px; font-weight: bold; }
+
+        /* Floating Sparkles */
+        .sparkle-bg {
+            position: fixed;
+            font-size: 20px;
+            z-index: -1;
+            opacity: 0.4;
+            animation: rise 12s linear infinite;
+        }
+        @keyframes rise {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
 
 <body>
 
-<div id="loading" class="loading-screen">
-    <div>✨ Entering Madisyn's Magical World ✨</div>
-    <div style="font-size: 60px;">🦄💜</div>
-</div>
+    <nav>
+        <div class="dropdown">
+            <button class="dropbtn">Explore Our Memories</button>
+            <div class="dropdown-content">
+                <a href="#us">About Us</a>
+                <a href="#time">Our Timeline</a>
+                <a href="#gallery">Photo Vault</a>
+                <a href="#bucket">Future Adventures</a>
+                <a href="#message">Love Note</a>
+            </div>
+        </div>
+    </nav>
 
-<canvas id="sparkles"></canvas>
+    <header>Madisyn + Adam</header>
 
-<header>Madisyn 🦄💜</header>
+    <section id="us">
+        <h2>About Us</h2>
+        <div style="font-size: 22px; color: #ad1457;">
+            We met through one of my streams and built something beautiful.<br>
+            A world full of 🦄 unicorns, 🥒 pickles, and 🍬 iced animal crackers.<br>
+            From late night talks to trusting each other with our pasts,<br>
+            every moment with you is my favorite.
+        </div>
+    </section>
 
-<section>
-    <h2>My Sweet Baby Girl</h2>
-    <p>My sweet baby girl, this is for our love so we can see our memories and other stuff! ✨</p>
-</section>
+    <section id="time">
+        <h2>Growing Together Since...</h2>
+        <div id="timer"></div>
+    </section>
 
-<section>
-    <h2>How Long We've Been Together 💖</h2>
-    <p id="timer"></p>
-</section>
+    <section id="gallery">
+        <h2>Memories in Photos</h2>
+        <div class="gallery">
+            <script>
+                for(let i=1; i<=46; i++){
+                    document.write('<img src="./photos/'+i+'.jpg" onerror="this.src=\'./photos/'+i+'.JPG\'">');
+                }
+            </script>
+        </div>
+    </section>
 
-<section>
-    <h2>About You ✨</h2>
-    Favorite colors: 🌸 Pink & 💜 Purple <br>
-    Favorite animal: 🦄 Unicorn <br>
-    Favorite foods: 🥒 Pickles & 🍪 Iced Animal Crackers <br>
-    Favorite drink: 🧃 Juice <br>
-    Favorite show: 📺 Nana <br>
-    Favorite place: 🏖️ Beach or ☁️ Your Bed <br>
-    Dream: 🏥 Becoming a physician helping people
-</section>
+    <section id="bucket">
+        <h2>Future Adventures</h2>
+        <div class="grid-container">
+            <div class="grid-box"><b>Dream Job</b><br>Helping people as a physician</div>
+            <div class="grid-box"><b>Places to Go</b><br>The Beach & Cozy Bed Days</div>
+            <div class="grid-box"><b>To Do List</b><br>Painting with glitter & more Roblox</div>
+        </div>
+    </section>
 
-<section>
-    <h2>Things You Love 🎀</h2>
-    🐱 cats • 🐶 dogs • 🦆 ducks • 🧟 resident evil <br>
-    🎬 watching my streams • 📱 making tiktoks <br>
-    🌈 my little pony • 🦄 unicorns • 🎮 roblox <br>
-    ✨ painting with glitter
-</section>
+    <section id="message">
+        <h2>A Message For Us</h2>
+        <p style="font-size: 20px; font-style: italic;">
+            "My dearest Madisyn, you mean so much to me baby. You're my amazing sweet beautiful girl and I love you so much. You make my life better and even when things are hard, I promise we will get through them together. I'm never leaving you."
+        </p>
+    </section>
 
-<section>
-    <h2>Our Memories 💭</h2>
-    We met through one of my streams... 🌸<br><br>
-    My favorite memory is when you trusted me with your past.<br><br>
-    Funniest moment was when Salem reached up while you were laying down! 😹
-</section>
+    <audio id="bgMusic" loop src="song.mp3"></audio>
 
-<section>
-    <h2>Nicknames ☁️</h2>
-    mabi • bear • my sweet girl • baby girl • princess 👑
-</section>
-
-<section>
-    <h2>Inside Jokes 🍭</h2>
-    for serious <br>
-    dumb stupid water bottle shut the fuck up 🤐
-</section>
-
-<section>
-    <h2>Photo Memories 📸</h2>
-    <div class="gallery">
-        <script>
-            for(let i=1; i<=46; i++){
-                document.write('<img src="./photos/'+i+'.jpg" onerror="this.src=\'./photos/'+i+'.JPG\'">');
-            }
-        </script>
-    </div>
-</section>
-
-<section>
-    <h2>Reasons I Love You 💗</h2>
-    <button onclick="love()">✨ Generate Magic ✨</button>
-    <p id="love" style="margin-top: 20px; font-weight: bold; color: #ff69b4;"></p>
-</section>
-
-<section>
-    <h2>A Message For You 💌</h2>
-    <p>
-        My dearest Madisyn, you mean so much to me baby. <br>
-        You're my amazing sweet beautiful girl and I love you so much! <br><br>
-        You make my life better and even when things are hard, <br>
-        I promise we will get through them together. <br><br>
-        <b>I'm never leaving you. ♾️</b>
-    </p>
-</section>
-
-<!-- Music Player -->
-<audio id="bgMusic" loop>
-  <source src="song.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-    // 1. Loading Screen
-    setTimeout(() => {
-        document.getElementById("loading").style.display = "none";
-    }, 2500);
-
-    // 2. Music Trigger
-    document.addEventListener('click', function() {
-        document.getElementById('bgMusic').play();
-    }, { once: true });
-
-    // 3. Floating Unicorns
-    function createUnicorn() {
-        const icons = ['🦄', '✨', '💜', '💖', '☁️', '🌸'];
-        const uni = document.createElement('div');
-        uni.className = 'unicorn-float';
-        uni.innerText = icons[Math.floor(Math.random() * icons.length)];
-        uni.style.left = Math.random() * 100 + "vw";
-        uni.style.animationDuration = (Math.random() * 3 + 4) + "s";
-        uni.style.opacity = Math.random();
-        document.body.appendChild(uni);
-        setTimeout(() => uni.remove(), 7000);
-    }
-    setInterval(createUnicorn, 500);
-
-    // 4. Timer Logic
-    var start = new Date("Feb 2 2026 00:00:00").getTime();
-    setInterval(function(){
-        var now = new Date().getTime();
-        var diff = now - start;
-        var d = Math.floor(diff/(1000*60*60*24));
-        var h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-        var m = Math.floor((diff%(1000*60*60))/(1000*60));
-        var s = Math.floor((diff%(1000*60))/1000);
-        document.getElementById("timer").innerHTML = d+" days "+h+"h "+m+"m "+s+"s";
-    }, 1000);
-
-    // 5. Sparkle Mouse Trail
-    const canvas = document.getElementById("sparkles");
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    let particles = [];
-    document.addEventListener("mousemove", e => {
-        for(let i=0; i<6; i++){
-            particles.push({
-                x: e.clientX, y: e.clientY,
-                size: Math.random() * 5,
-                color: Math.random() > 0.5 ? '#ff9df7' : '#ba68c8',
-                life: 80
+    <script>
+        // Reveal Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('section').forEach(s => observer.observe(s));
+
+        // Anniversary Timer
+        var start = new Date("Feb 2 2026 00:00:00").getTime();
+        setInterval(function(){
+            var now = new Date().getTime();
+            var diff = now - start;
+            var d = Math.floor(diff/(1000*60*60*24));
+            var h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+            var m = Math.floor((diff%(1000*60*60))/(1000*60));
+            var s = Math.floor((diff%(1000*60))/1000);
+            document.getElementById("timer").innerHTML = d+"d "+h+"h "+m+"m "+s+"s";
+        }, 1000);
+
+        // Music
+        document.addEventListener('click', () => {
+            document.getElementById('bgMusic').play();
+        }, { once: true });
+
+        // Floating Decor
+        function createSparkle() {
+            const el = document.createElement('div');
+            el.className = 'sparkle-bg';
+            el.innerText = Math.random() > 0.5 ? '✨' : '🌸';
+            el.style.left = Math.random() * 100 + "vw";
+            el.style.animationDuration = (Math.random() * 8 + 6) + "s";
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), 12000);
         }
-    });
-    function animate() {
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        particles.forEach((p, i) => {
-            p.life--; p.size *= 0.96;
-            ctx.fillStyle = p.color;
-            ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI*2); ctx.fill();
-            if(p.life <= 0) particles.splice(i, 1);
-        });
-        requestAnimationFrame(animate);
-    }
-    animate();
-
-    // 6. Reasons Generator
-    let reasons = [
-        "your beautiful eyes ✨",
-        "how caring you are 🌸",
-        "the way you call me sweet handsome baby boy 💜",
-        "your amazing personality 🌈",
-        "how you trust me 🤝",
-        "how sweet you are 🍭",
-        "how you make my life better ♾️",
-        "how cute you are 🦄",
-        "the way you laugh 😂"
-    ];
-    function love() {
-        document.getElementById("love").innerHTML = reasons[Math.floor(Math.random()*reasons.length)];
-    }
-
-    // 7. Click Hearts
-    document.addEventListener("click", e => {
-        let heart = document.createElement("div");
-        heart.innerHTML = "💜";
-        heart.style.position = "fixed";
-        heart.style.left = e.clientX + "px";
-        heart.style.top = e.clientY + "px";
-        heart.style.fontSize = "30px";
-        heart.style.zIndex = "1001";
-        heart.style.pointerEvents = "none";
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 800);
-    });
-</script>
-
+        setInterval(createSparkle, 1500);
+    </script>
 </body>
 </html>
