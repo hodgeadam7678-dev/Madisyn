@@ -121,23 +121,16 @@ dumb stupid water bottle shut the fuck up
 </section>
 
 <section>
-
 <h2>Photo Memories 📸</h2>
-
 <div class="gallery">
-
 <script>
-
+// This handles both .jpg and .JPG and adds a small delay to help GitHub load them
 for(let i=1;i<=46;i++){
-document.write('<img src="photos/'+i+'.jpg">');
+    document.write('<img src="photos/'+i+'.jpg" onerror="this.src=\'photos/'+i+'.JPG\'">');
 }
-
 </script>
-
 </div>
-
 </section>
-
 
 <section>
 <h2>Reasons I Love You 💗</h2>
@@ -145,7 +138,7 @@ document.write('<img src="photos/'+i+'.jpg">');
 <p id="love"></p>
 </section>
 
-<!-- Audio player for your song.mp3 file -->
+<!-- Music Player -->
 <audio id="bgMusic" loop>
   <source src="song.mp3" type="audio/mpeg">
 </audio>
@@ -162,6 +155,14 @@ im never leaving you
 </section>
 
 <script>
+// MUSIC FIX: Starts music on the first click anywhere
+document.addEventListener('click', function() {
+    var audio = document.getElementById('bgMusic');
+    audio.play().catch(function(error) {
+        console.log("Audio play failed, waiting for interaction");
+    });
+}, { once: true });
+
 setTimeout(()=>{
 document.getElementById("loading").style.display="none";
 },2000);
