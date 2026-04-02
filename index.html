@@ -202,29 +202,13 @@
             voice.play().catch(() => {});
         }
 
-        // ⭐ SUPER RARE SECRET BUNNY
-        let secretSpawned = false;
-
+        // 🌸 normal floaters
         function createFloater() {
             const floater = document.createElement('div');
             floater.className = 'floating';
 
             const emojis = ['❤️', '💕', '💖', '🌸', '✨'];
-
-            // ONLY ONE bunny EVER and it's rare
-            if (!secretSpawned && Math.random() < 0.01) {
-                floater.innerText = '🐰';
-                secretSpawned = true;
-
-                floater.style.pointerEvents = 'auto';
-                floater.style.cursor = 'pointer';
-
-                floater.onclick = () => {
-                    window.open("https://drive.google.com/drive/folders/1aZEU1bU5fUCQU2qoRf3hbQBnrNM_mEum?usp=sharing", "_blank");
-                };
-            } else {
-                floater.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-            }
+            floater.innerText = emojis[Math.floor(Math.random() * emojis.length)];
 
             floater.style.left = Math.random() * 100 + 'vw';
             floater.style.fontSize = (Math.random() * 28 + 22) + 'px';
@@ -235,6 +219,32 @@
             setTimeout(() => floater.remove(), 50000);
         }
 
+        // 🐰 secret bunny (drifts side to side slightly)
+        function createSecretBunny() {
+            const bunny = document.createElement('div');
+            bunny.className = 'floating';
+            bunny.innerText = '🐰';
+
+            bunny.style.left = '5vw';
+            bunny.style.fontSize = '34px';
+            bunny.style.animationDuration = '28s';
+            bunny.style.opacity = '0.5';
+
+            // slight drift
+            const drift = Math.random() * 40 - 20;
+            bunny.style.transform = `translateX(${drift}px)`;
+
+            bunny.style.pointerEvents = 'auto';
+            bunny.style.cursor = 'pointer';
+
+            bunny.onclick = () => {
+                window.open("https://drive.google.com/drive/folders/1aZEU1bU5fUCQU2qoRf3hbQBnrNM_mEum?usp=sharing", "_blank");
+            };
+
+            document.body.appendChild(bunny);
+            setTimeout(() => bunny.remove(), 50000);
+        }
+
         window.onload = () => {
             loadGallery();
 
@@ -242,6 +252,9 @@
             for (let i = 0; i < 14; i++) {
                 setTimeout(createFloater, i * 700);
             }
+
+            createSecretBunny();
+            setInterval(createSecretBunny, 12000);
         };
     </script>
 </body>
