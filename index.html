@@ -104,7 +104,6 @@
             z-index: 2;
         }
 
-        /* Gentle floating background emojis */
         .floating {
             position: fixed;
             top: -80px;
@@ -139,7 +138,7 @@
                 <p>My rabbit, my doll, my sweet girl… you’re my everything. I’m genuinely obsessed with you. I only have eyes for you. I’m gonna try my best every single day to make you the happiest girl in the world.</p>
             </div>
 
-            <button class="voice-btn" onclick="document.getElementById('voiceNote').play()">
+            <button class="voice-btn" onclick="playVoiceNote()">
                 🎤 Play My Voice Note 💌<br>
                 <small style="font-size:0.9rem; opacity:0.9;">Hear me reading this just for you, baby bear 🐰</small>
             </button>
@@ -156,22 +155,24 @@
         Forever your baby bear's favorite person 🐰</p>
     </footer>
 
-    <audio id="bgMusic" loop>
+    <!-- Background Music - Auto plays on page load -->
+    <audio id="bgMusic" loop autoplay>
         <source src="song.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- Voice Note - Only plays when button is clicked -->
     <audio id="voiceNote">
         <source src="voice-note.mp3" type="audio/mpeg">
     </audio>
 
     <script>
+        // Load photos (supports .jpg and .JPG)
         function loadGallery() {
             const gallery = document.getElementById('gallery');
             const extensions = ['.jpg', '.JPG', '.jpeg', '.JPEG'];
 
             for (let i = 1; i <= 3; i++) {
                 const div = document.createElement('div');
-
                 const img = document.createElement('img');
                 img.alt = "My Baby Bunny";
 
@@ -179,21 +180,17 @@
 
                 extensions.forEach(ext => {
                     if (loaded) return;
-
-                    const testSrc = `photos/${i}${ext}`;
+                    const src = `photos/${i}${ext}`;
                     const testImg = new Image();
-
                     testImg.onload = () => {
                         if (!loaded) {
                             loaded = true;
-                            img.src = testSrc;
+                            img.src = src;
                         }
                     };
-
-                    testImg.src = testSrc;
+                    testImg.src = src;
                 });
 
-                // Fallback if photo doesn't exist
                 img.onerror = () => {
                     img.src = `https://via.placeholder.com/600x600/ff9ef8/ffffff?text=My+Baby+Bunny`;
                 };
@@ -201,6 +198,12 @@
                 div.appendChild(img);
                 gallery.appendChild(div);
             }
+        }
+
+        // Play voice note only when button clicked
+        function playVoiceNote() {
+            const voice = document.getElementById('voiceNote');
+            voice.play().catch(() => {});
         }
 
         // Floating emojis
@@ -216,6 +219,7 @@
             setTimeout(() => floater.remove(), 50000);
         }
 
+        // Initialize
         window.onload = () => {
             loadGallery();
 
@@ -223,14 +227,6 @@
             for (let i = 0; i < 14; i++) {
                 setTimeout(createFloater, i * 700);
             }
-
-            // Play song on first tap
-            document.addEventListener('click', (e) => {
-                const bgMusic = document.getElementById('bgMusic');
-                if (bgMusic.paused && !e.target.closest('.voice-btn')) {
-                    bgMusic.play().catch(() => {});
-                }
-            }, { once: true });
         };
     </script>
 </body>
