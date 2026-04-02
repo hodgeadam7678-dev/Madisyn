@@ -1,244 +1,230 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Madisyn + Adam ♾️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 2 Months, My Sweet Baby Bear 🐰</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap');
+
         html { scroll-behavior: smooth; }
-        
+
         body {
             margin: 0;
-            padding-top: 100px; 
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            padding-top: 90px;
+            font-family: 'Poppins', sans-serif;
             color: #ff8fa3;
             text-align: center;
             overflow-x: hidden;
-            /* Ultra Light Candy Pink Background */
-            background-color: #fff0f3; 
-            /* Soft White Polka Dots */
-            background-image: radial-gradient(rgba(255,255,255,1) 30%, transparent 30%);
-            background-size: 60px 60px;
-            animation: polkaScroll 40s linear infinite;
+            background: linear-gradient(135deg, #ff9ef8, #c79fff, #ff6eff);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            position: relative;
         }
 
-        @keyframes polkaScroll {
-            0% { background-position: 0 0; }
-            100% { background-position: 120px 120px; }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* Clean Sticky Menu */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             height: 80px;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255,255,255,0.75);
             backdrop-filter: blur(15px);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgba(255,255,255,0.6);
         }
-
-        .dropdown { position: relative; display: inline-block; }
-        
         .dropbtn {
-            background: #fff;
-            color: #ff8fa3;
-            padding: 12px 35px;
-            font-size: 16px;
-            border: 2px solid #ff8fa3;
+            background: white;
+            color: #ff4d6d;
+            padding: 12px 40px;
+            font-size: 17px;
+            border: 3px solid #ff8fa3;
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
             transition: 0.3s;
         }
+        .dropbtn:hover { background: #ff8fa3; color: white; transform: scale(1.08); }
 
-        .dropbtn:hover { background: #ff8fa3; color: white; transform: scale(1.05); }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 200px;
-            box-shadow: 0px 10px 30px rgba(255, 143, 163, 0.1);
-            border-radius: 20px;
-            margin-top: 10px;
-            overflow: hidden;
-            text-align: left;
+        .container { 
+            max-width: 850px; 
+            margin: 0 auto; 
+            padding: 20px;
+            position: relative;
+            z-index: 2;
         }
 
-        .dropdown-content a {
-            color: #ff8fa3;
-            padding: 15px 20px;
-            text-decoration: none;
-            display: block;
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.8rem;
+            color: white;
+            text-shadow: 0 0 25px rgba(255,255,255,0.9), 0 0 40px #ff6eff;
+            margin: 20px 0 10px;
+        }
+
+        .subtitle { font-size: 1.7rem; color: #ffe0ff; margin-bottom: 30px; }
+
+        section {
+            background: rgba(255,255,255,0.22);
+            border-radius: 40px;
+            padding: 45px 35px;
+            margin: 40px auto;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255,255,255,0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .voice-btn {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+            transition: all 0.3s;
             font-weight: bold;
         }
-
-        .dropdown-content a:hover { background-color: #fff0f3; }
-        .dropdown:hover .dropdown-content { display: block; }
-
-        /* Modern Glass Sections */
-        section {
-            margin: 50px auto;
-            padding: 60px;
-            width: 85%;
-            max-width: 900px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 50px;
-            box-shadow: 0 20px 40px rgba(255, 182, 193, 0.1);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s ease-out;
+        .voice-btn:hover {
+            transform: scale(1.08);
+            background: #ff6eff;
+            box-shadow: 0 12px 25px rgba(255, 110, 239, 0.5);
         }
-
-        section.visible { opacity: 1; transform: translateY(0); }
-
-        /* Branding inside the first section instead of a separate header */
-        .brand-title {
-            font-size: 50px;
-            color: #ff4d6d;
-            letter-spacing: 10px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            font-weight: 200;
-        }
-
-        h2 { font-size: 30px; color: #ff8fa3; margin-bottom: 30px; letter-spacing: 3px; text-transform: uppercase; }
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
+            margin-top: 25px;
         }
-
         .gallery img {
             width: 100%;
-            border-radius: 30px;
-            border: 10px solid white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
-            transition: 0.5s;
+            border-radius: 25px;
+            border: 8px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: 0.4s;
+        }
+        .gallery img:hover { transform: scale(1.06) rotate(2deg); }
+
+        .message { line-height: 1.75; font-size: 1.2rem; color: white; }
+
+        footer {
+            margin-top: 60px;
+            padding: 30px;
+            font-size: 1.3rem;
+            color: #ffe0ff;
+            position: relative;
+            z-index: 2;
         }
 
-        .gallery img:hover { transform: scale(1.05) rotate(1deg); }
-
-        #timer { font-size: 35px; color: #ff4d6d; font-weight: bold; letter-spacing: 2px; }
-
-        /* Floating Decorations */
-        .decor {
+        /* Gentle floating background emojis only */
+        .floating {
             position: fixed;
-            font-size: 25px;
-            z-index: -1;
-            opacity: 0.4;
-            animation: floatUp 15s linear infinite;
+            top: -80px;
+            z-index: 1;
+            pointer-events: none;
+            animation: floatUp linear infinite;
+            opacity: 0.45;
         }
 
         @keyframes floatUp {
             0% { transform: translateY(110vh) rotate(0deg); }
-            100% { transform: translateY(-10vh) rotate(360deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
         }
     </style>
 </head>
-
 <body>
 
     <nav>
-        <div class="dropdown">
-            <button class="dropbtn">Explore Memories</button>
-            <div class="dropdown-content">
-                <a href="#about">Our Story</a>
-                <a href="#timer-sec">Our Timeline</a>
-                <a href="#photos">The Vault</a>
-                <a href="#recs">Recommendations</a>
-                <a href="#message">Love Note</a>
-            </div>
-        </div>
+        <button class="dropbtn" onclick="document.getElementById('bgMusic').play()">Play Our Song ♫</button>
     </nav>
 
-    <section id="about">
-        <div class="brand-title">Madisyn + Adam</div>
-        <h2>Our Story</h2>
-        <div style="font-size: 22px; line-height: 1.8;">
-            Met through one of Adam's streams 🌸 <br>
-            Building a future full of dreams and happiness. <br>
-            Every memory we make is my favorite part of the day.
-        </div>
-    </section>
+    <div class="container">
+        <h1>Happy 2 Months, Madi 🐰💕</h1>
+        <p class="subtitle">My sweet baby bear • my precious bunny • my rabbit • my doll • my love</p>
 
-    <section id="timer-sec">
-        <h2>Growing Together Since...</h2>
-        <div id="timer"></div>
-    </section>
+        <section id="message">
+            <h2 style="color:white; font-size:2.2rem; margin-bottom:25px;">My Love Note to You</h2>
+            <div class="message">
+                <p>Hey my sweet baby bear…</p>
+                <p>I can’t believe we’re already at 2 months together. These past two months with you have been so amazing. Time with you just flies by because every single day feels so good and easy.</p>
+                
+                <p>Baby, I love you so much. I’m really grateful to have you in my life and to be able to call you mine. You make me feel amazing in a way I’ve never felt for anyone before. Every time I see your face, my heart lights up and I can’t stop smiling. When we’re on FT and you fall asleep, I just sit there most of the time admiring how cute and calm you look. Those beautiful eyes of yours, my love… they’re so perfect. They draw me in like nothing else ever could.</p>
+                
+                <p>I’m so happy I get to be your first boyfriend who actually treats you right. I love that I’m the one you’ve opened up to the most. Even though you’re still working through things, I’m really proud of you and I’m never going anywhere.</p>
+                
+                <p>My rabbit, my doll, my sweet girl… you’re my everything. I’m genuinely obsessed with you. I only have eyes for you. I’m gonna try my best every single day to make you the happiest girl in the world.</p>
+            </div>
 
-    <section id="photos">
-        <h2>Our Memories</h2>
-        <div class="gallery">
-            <script>
-                for(let i=1; i<=46; i++){
-                    document.write('<img src="./photos/'+i+'.jpg" onerror="this.src=\'./photos/'+i+'.JPG\'">');
-                }
-            </script>
-        </div>
-    </section>
+            <button class="voice-btn" onclick="document.getElementById('voiceNote').play()">
+                🎤 Play My Voice Note 💌<br>
+                <small style="font-size:0.9rem; opacity:0.9;">Hear me reading this just for you, baby bear 🐰</small>
+            </button>
+        </section>
 
-    <section id="recs">
-        <h2>Recommended For Us</h2>
-        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
-            <div style="background: white; padding: 30px; border-radius: 30px; width: 200px; box-shadow: 0 5px 15px rgba(255,143,163,0.05);"><b>Skincare</b><br>Glow Recipe ✨</div>
-            <div style="background: white; padding: 30px; border-radius: 30px; width: 200px; box-shadow: 0 5px 15px rgba(255,143,163,0.05);"><b>Snack</b><br>Animal Crackers 🍪</div>
-            <div style="background: white; padding: 30px; border-radius: 30px; width: 200px; box-shadow: 0 5px 15px rgba(255,143,163,0.05);"><b>Place</b><br>The Beach 🏖️</div>
-        </div>
-    </section>
+        <section id="photos">
+            <h2 style="color:white; font-size:2.2rem; margin-bottom:20px;">My Baby Bunny 🐰</h2>
+            <div class="gallery">
+                <img src="photos/1.jpg" alt="My Baby Bunny 1">
+                <img src="photos/2.jpg" alt="My Baby Bunny 2">
+                <img src="photos/3.jpg" alt="My Baby Bunny 3">
+            </div>
+        </section>
+    </div>
 
-    <section id="message">
-        <h2>Our Forever Message</h2>
-        <p style="font-size: 22px; font-style: italic;">"You mean everything to me. We'll face everything together, forever. ♾️"</p>
-    </section>
+    <footer>
+        <p>I love you so so much, more than I can even explain ❤️<br>
+        Forever your baby bear's favorite person 🐰</p>
+    </footer>
 
-    <audio id="bgMusic" loop src="song.mp3"></audio>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Voice Note -->
+    <audio id="voiceNote">
+        <source src="voice-note.mp3" type="audio/mpeg">
+    </audio>
 
     <script>
-        // Reveal Logic
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('section').forEach(s => observer.observe(s));
-
-        // Anniversary Timer
-        var start = new Date("Feb 2 2026 00:00:00").getTime();
-        setInterval(function(){
-            var now = new Date().getTime();
-            var diff = now - start;
-            var d = Math.floor(diff/(1000*60*60*24));
-            var h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-            var m = Math.floor((diff%(1000*60*60))/(1000*60));
-            var s = Math.floor((diff%(1000*60))/1000);
-            document.getElementById("timer").innerHTML = d+"d "+h+"h "+m+"m "+s+"s";
-        }, 1000);
-
-        // Music Trigger
-        document.addEventListener('click', () => {
-            document.getElementById('bgMusic').play();
-        }, { once: true });
-
-        // Floating Decor
+        // Gentle floating background emojis only
         function createFloater() {
-            const el = document.createElement('div');
-            el.className = 'decor';
-            el.innerText = Math.random() > 0.5 ? '🌸' : '✨';
-            el.style.left = Math.random() * 100 + "vw";
-            el.style.animationDuration = (Math.random() * 8 + 7) + "s";
-            document.body.appendChild(el);
-            setTimeout(() => el.remove(), 15000);
+            const floater = document.createElement('div');
+            floater.className = 'floating';
+            floater.innerText = ['🐰', '❤️', '💕', '💖', '🌸', '✨'][Math.floor(Math.random() * 6)];
+            floater.style.left = Math.random() * 100 + 'vw';
+            floater.style.fontSize = (Math.random() * 28 + 22) + 'px';
+            floater.style.animationDuration = (Math.random() * 22 + 24) + 's';   // slower & dreamier
+            floater.style.opacity = Math.random() * 0.35 + 0.35;
+            document.body.appendChild(floater);
+
+            setTimeout(() => floater.remove(), 50000);
         }
-        setInterval(createFloater, 2000);
+
+        // Start floating emojis
+        setInterval(createFloater, 900);
+        for (let i = 0; i < 14; i++) {
+            setTimeout(createFloater, i * 700);
+        }
+
+        // Music trigger (plays on first click anywhere)
+        document.addEventListener('click', () => {
+            const bg = document.getElementById('bgMusic');
+            if (bg.paused) bg.play().catch(() => {});
+        }, { once: true });
     </script>
 </body>
 </html>
