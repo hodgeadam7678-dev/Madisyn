@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
     <title>Happy 2 Months, My Sweet Baby Bear 🐰</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap');
@@ -27,32 +28,6 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 80px;
-            background: rgba(255,255,255,0.75);
-            backdrop-filter: blur(15px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.6);
-        }
-        .dropbtn {
-            background: white;
-            color: #ff4d6d;
-            padding: 12px 40px;
-            font-size: 17px;
-            border: 3px solid #ff8fa3;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .dropbtn:hover { background: #ff8fa3; color: white; transform: scale(1.08); }
 
         .container { 
             max-width: 850px; 
@@ -129,7 +104,7 @@
             z-index: 2;
         }
 
-        /* Gentle floating background emojis only */
+        /* Gentle floating background emojis */
         .floating {
             position: fixed;
             top: -80px;
@@ -146,10 +121,6 @@
     </style>
 </head>
 <body>
-
-    <nav>
-        <button class="dropbtn" onclick="document.getElementById('bgMusic').play()">Play Our Song ♫</button>
-    </nav>
 
     <div class="container">
         <h1>Happy 2 Months, Madi 🐰💕</h1>
@@ -176,11 +147,7 @@
 
         <section id="photos">
             <h2 style="color:white; font-size:2.2rem; margin-bottom:20px;">My Baby Bunny 🐰</h2>
-            <div class="gallery">
-                <img src="photos/1.jpg" alt="My Baby Bunny 1">
-                <img src="photos/2.jpg" alt="My Baby Bunny 2">
-                <img src="photos/3.jpg" alt="My Baby Bunny 3">
-            </div>
+            <div class="gallery" id="gallery"></div>
         </section>
     </div>
 
@@ -200,31 +167,73 @@
     </audio>
 
     <script>
-        // Gentle floating background emojis only
+        // Create gallery that tries both .jpg and .JPG
+        function loadGallery() {
+            const gallery = document.getElementById('gallery');
+            const extensions = ['.jpg', '.JPG', '.jpeg', '.JPEG'];
+
+            for (let i = 1; i <= 3; i++) {
+                const imgContainer = document.createElement('div');
+                
+                const img = document.createElement('img');
+                img.alt = `My Baby Bunny ${i}`;
+
+                // Try different extensions until one loads
+                let loaded = false;
+                extensions.forEach(ext => {
+                    if (!loaded) {
+                        const testImg = new Image();
+                        testImg.src = `photos/${i}${ext}`;
+                        testImg.onload = () => {
+                            if (!loaded) {
+                                loaded = true;
+                                img.src = `photos/${i}${ext}`;
+                            }
+                        };
+                    }
+                });
+
+                // Fallback if none load
+                img.onerror = () => {
+                    img.src = 'https://via.placeholder.com/600x600/ffe0ff/ffffff?text=Photo+' + i;
+                };
+
+                imgContainer.appendChild(img);
+                gallery.appendChild(imgContainer);
+            }
+        }
+
+        // Gentle floating background emojis
         function createFloater() {
             const floater = document.createElement('div');
             floater.className = 'floating';
             floater.innerText = ['🐰', '❤️', '💕', '💖', '🌸', '✨'][Math.floor(Math.random() * 6)];
             floater.style.left = Math.random() * 100 + 'vw';
             floater.style.fontSize = (Math.random() * 28 + 22) + 'px';
-            floater.style.animationDuration = (Math.random() * 22 + 24) + 's';   // slower & dreamier
+            floater.style.animationDuration = (Math.random() * 22 + 24) + 's';
             floater.style.opacity = Math.random() * 0.35 + 0.35;
             document.body.appendChild(floater);
 
             setTimeout(() => floater.remove(), 50000);
         }
 
-        // Start floating emojis
-        setInterval(createFloater, 900);
-        for (let i = 0; i < 14; i++) {
-            setTimeout(createFloater, i * 700);
-        }
+        // Initialize everything
+        window.onload = () => {
+            loadGallery();
 
-        // Music trigger (plays on first click anywhere)
-        document.addEventListener('click', () => {
-            const bg = document.getElementById('bgMusic');
-            if (bg.paused) bg.play().catch(() => {});
-        }, { once: true });
+            setInterval(createFloater, 900);
+            for (let i = 0; i < 14; i++) {
+                setTimeout(createFloater, i * 700);
+            }
+
+            // Play background music on first tap anywhere
+            document.addEventListener('click', (e) => {
+                const bgMusic = document.getElementById('bgMusic');
+                if (bgMusic.paused && !e.target.closest('.voice-btn')) {
+                    bgMusic.play().catch(() => {});
+                }
+            }, { once: true });
+        };
     </script>
 </body>
 </html>
