@@ -114,148 +114,107 @@
         }
 
         @keyframes floatUp {
-            0% { transform: translateY(110vh) rotate(0deg); }
-            100% { transform: translateY(-100px) rotate(360deg); }
+            0% { transform: translate(0,110vh) rotate(0deg); }
+            100% { transform: translate(var(--driftX), -100px) rotate(360deg); }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Happy 2 Months, Madi 🐰💕</h1>
-        <p class="subtitle">My sweet baby bear • my precious bunny • my rabbit • my doll • my love</p>
+<div class="container">
+    <h1>Happy 2 Months, Madi 🐰💕</h1>
+    <p class="subtitle">My sweet baby bear • my precious bunny • my rabbit • my doll • my love</p>
 
-        <section id="message">
-            <h2 style="color:white; font-size:2.2rem; margin-bottom:25px;">My Love Note to You</h2>
-            <div class="message">
-                <p>Hey my sweet baby bear…</p>
-                <p>I can’t believe we’re already at 2 months together. These past two months with you have been so amazing. Time with you just flies by because every single day feels so good and easy.</p>
-                
-                <p>Baby, I love you so much. I’m really grateful to have you in my life and to be able to call you mine. You make me feel amazing in a way I’ve never felt for anyone before. Every time I see your face, my heart lights up and I can’t stop smiling. When we’re on FT and you fall asleep, I just sit there most of the time admiring how cute and calm you look. Those beautiful eyes of yours, my love… they’re so perfect. They draw me in like nothing else ever could.</p>
-                
-                <p>I’m so happy I get to be your first boyfriend who actually treats you right. I love that I’m the one you’ve opened up to the most. Even though you’re still working through things, I’m really proud of you and I’m never going anywhere.</p>
-                
-                <p>My rabbit, my doll, my sweet girl… you’re my everything. I’m genuinely obsessed with you. I only have eyes for you. I’m gonna try my best every single day to make you the happiest girl in the world.</p>
-            </div>
+    <section id="message">
+        <h2 style="color:white; font-size:2.2rem;">My Love Note to You</h2>
+        <div class="message">
+            <p>Hey my sweet baby bear…</p>
+            <p>I can’t believe we’re already at 2 months together...</p>
+        </div>
 
-            <button class="voice-btn" onclick="playVoiceNote()">
-                🎤 Play My Voice Note 💌<br>
-                <small style="font-size:0.9rem; opacity:0.9;">Hear me reading this just for you, baby bear 🐰</small>
-            </button>
-        </section>
+        <button class="voice-btn" onclick="playVoiceNote()">🎤 Play My Voice Note 💌</button>
+    </section>
 
-        <section id="photos">
-            <h2 style="color:white; font-size:2.2rem; margin-bottom:20px;">My Baby Bunny 🐰</h2>
-            <div class="gallery" id="gallery"></div>
-        </section>
-    </div>
+    <section id="photos">
+        <h2 style="color:white;">My Baby Bunny 🐰</h2>
+        <div class="gallery" id="gallery"></div>
+    </section>
+</div>
 
-    <footer>
-        <p>I love you so so much, more than I can even explain ❤️<br>
-        Forever your baby bear's favorite person 🐰</p>
-    </footer>
+<footer>
+    <p>I love you so so much ❤️</p>
+</footer>
 
-    <audio id="bgMusic" loop autoplay>
-        <source src="song.mp3" type="audio/mpeg">
-    </audio>
+<audio id="bgMusic" loop autoplay>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
 
-    <audio id="voiceNote">
-        <source src="voice-note.mp3" type="audio/mpeg">
-    </audio>
+<audio id="voiceNote">
+    <source src="voice-note.mp3" type="audio/mpeg">
+</audio>
 
-    <script>
-        function loadGallery() {
-            const gallery = document.getElementById('gallery');
-            const extensions = ['.jpg', '.JPG', '.jpeg', '.JPEG'];
+<script>
+function loadGallery() {
+    const gallery = document.getElementById('gallery');
+    for (let i = 1; i <= 3; i++) {
+        const img = document.createElement('img');
+        img.src = `photos/${i}.jpg`;
+        gallery.appendChild(img);
+    }
+}
 
-            for (let i = 1; i <= 3; i++) {
-                const div = document.createElement('div');
-                const img = document.createElement('img');
-                img.alt = "My Baby Bunny";
+function playVoiceNote() {
+    document.getElementById('voiceNote').play();
+}
 
-                let loaded = false;
+// ⭐ SECRET HEART (ONLY ONE THAT WORKS)
+let secretHeartCreated = false;
 
-                extensions.forEach(ext => {
-                    if (loaded) return;
-                    const src = `photos/${i}${ext}`;
-                    const testImg = new Image();
-                    testImg.onload = () => {
-                        if (!loaded) {
-                            loaded = true;
-                            img.src = src;
-                        }
-                    };
-                    testImg.src = src;
-                });
+function createFloater() {
+    const floater = document.createElement('div');
+    floater.className = 'floating';
 
-                img.onerror = () => {
-                    img.src = `https://via.placeholder.com/600x600/ff9ef8/ffffff?text=My+Baby+Bunny`;
-                };
+    const emojis = ['❤️','💕','💖','🌸','✨'];
 
-                div.appendChild(img);
-                gallery.appendChild(div);
-            }
-        }
+    let emoji;
 
-        function playVoiceNote() {
-            const voice = document.getElementById('voiceNote');
-            voice.play().catch(() => {});
-        }
+    if (!secretHeartCreated) {
+        emoji = '💖'; // THIS is the secret one
+        secretHeartCreated = true;
 
-        // 🌸 normal floaters
-        function createFloater() {
-            const floater = document.createElement('div');
-            floater.className = 'floating';
+        floater.style.pointerEvents = 'auto';
+        floater.style.cursor = 'pointer';
 
-            const emojis = ['❤️', '💕', '💖', '🌸', '✨'];
-            floater.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-
-            floater.style.left = Math.random() * 100 + 'vw';
-            floater.style.fontSize = (Math.random() * 28 + 22) + 'px';
-            floater.style.animationDuration = (Math.random() * 22 + 24) + 's';
-            floater.style.opacity = Math.random() * 0.35 + 0.35;
-
-            document.body.appendChild(floater);
-            setTimeout(() => floater.remove(), 50000);
-        }
-
-        // 🐰 secret bunny (drifts side to side slightly)
-        function createSecretBunny() {
-            const bunny = document.createElement('div');
-            bunny.className = 'floating';
-            bunny.innerText = '🐰';
-
-            bunny.style.left = '5vw';
-            bunny.style.fontSize = '34px';
-            bunny.style.animationDuration = '28s';
-            bunny.style.opacity = '0.5';
-
-            // slight drift
-            const drift = Math.random() * 40 - 20;
-            bunny.style.transform = `translateX(${drift}px)`;
-
-            bunny.style.pointerEvents = 'auto';
-            bunny.style.cursor = 'pointer';
-
-            bunny.onclick = () => {
-                window.open("https://drive.google.com/drive/folders/1aZEU1bU5fUCQU2qoRf3hbQBnrNM_mEum?usp=sharing", "_blank");
-            };
-
-            document.body.appendChild(bunny);
-            setTimeout(() => bunny.remove(), 50000);
-        }
-
-        window.onload = () => {
-            loadGallery();
-
-            setInterval(createFloater, 900);
-            for (let i = 0; i < 14; i++) {
-                setTimeout(createFloater, i * 700);
-            }
-
-            createSecretBunny();
-            setInterval(createSecretBunny, 12000);
+        floater.onclick = () => {
+            window.open("https://drive.google.com/drive/folders/1aZEU1bU5fUCQU2qoRf3hbQBnrNM_mEum?usp=sharing", "_blank");
         };
-    </script>
+    } else {
+        emoji = emojis[Math.floor(Math.random() * emojis.length)];
+    }
+
+    floater.innerText = emoji;
+
+    const drift = (Math.random() * 200 - 100) + 'px';
+    floater.style.setProperty('--driftX', drift);
+
+    floater.style.left = Math.random() * 100 + 'vw';
+    floater.style.fontSize = (Math.random() * 28 + 22) + 'px';
+    floater.style.animationDuration = (Math.random() * 20 + 25) + 's';
+
+    document.body.appendChild(floater);
+    setTimeout(() => floater.remove(), 50000);
+}
+
+window.onload = () => {
+    loadGallery();
+
+    setInterval(createFloater, 900);
+
+    for (let i = 0; i < 12; i++) {
+        setTimeout(createFloater, i * 600);
+    }
+};
+</script>
+
 </body>
 </html>
