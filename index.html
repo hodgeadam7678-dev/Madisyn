@@ -155,18 +155,15 @@
         Forever your baby bear's favorite person 🐰</p>
     </footer>
 
-    <!-- Background Music - Auto plays on page load -->
     <audio id="bgMusic" loop autoplay>
         <source src="song.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Voice Note - Only plays when button is clicked -->
     <audio id="voiceNote">
         <source src="voice-note.mp3" type="audio/mpeg">
     </audio>
 
     <script>
-        // Load photos (supports .jpg and .JPG)
         function loadGallery() {
             const gallery = document.getElementById('gallery');
             const extensions = ['.jpg', '.JPG', '.jpeg', '.JPEG'];
@@ -200,26 +197,44 @@
             }
         }
 
-        // Play voice note only when button clicked
         function playVoiceNote() {
             const voice = document.getElementById('voiceNote');
             voice.play().catch(() => {});
         }
 
-        // Floating emojis
+        // ⭐ SUPER RARE SECRET BUNNY
+        let secretSpawned = false;
+
         function createFloater() {
             const floater = document.createElement('div');
             floater.className = 'floating';
-            floater.innerText = ['🐰', '❤️', '💕', '💖', '🌸', '✨'][Math.floor(Math.random() * 6)];
+
+            const emojis = ['❤️', '💕', '💖', '🌸', '✨'];
+
+            // ONLY ONE bunny EVER and it's rare
+            if (!secretSpawned && Math.random() < 0.01) {
+                floater.innerText = '🐰';
+                secretSpawned = true;
+
+                floater.style.pointerEvents = 'auto';
+                floater.style.cursor = 'pointer';
+
+                floater.onclick = () => {
+                    window.open("https://drive.google.com/drive/folders/1aZEU1bU5fUCQU2qoRf3hbQBnrNM_mEum?usp=sharing", "_blank");
+                };
+            } else {
+                floater.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            }
+
             floater.style.left = Math.random() * 100 + 'vw';
             floater.style.fontSize = (Math.random() * 28 + 22) + 'px';
             floater.style.animationDuration = (Math.random() * 22 + 24) + 's';
             floater.style.opacity = Math.random() * 0.35 + 0.35;
+
             document.body.appendChild(floater);
             setTimeout(() => floater.remove(), 50000);
         }
 
-        // Initialize
         window.onload = () => {
             loadGallery();
 
@@ -231,4 +246,3 @@
     </script>
 </body>
 </html>
-
