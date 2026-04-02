@@ -168,10 +168,10 @@ Forever your baby bear's favorite person 🐰</p>
 
 <script>
 
-// gallery FIXED
+// Load photos (supports .jpg and .JPG)
 function loadGallery() {
 const gallery = document.getElementById('gallery');
-const extensions = ['.jpg','.JPG','.jpeg','.JPEG'];
+const extensions = ['.jpg', '.JPG', '.jpeg', '.JPEG'];
 
 for (let i = 1; i <= 3; i++) {
 const div = document.createElement('div');
@@ -184,14 +184,12 @@ extensions.forEach(ext => {
 if (loaded) return;
 const src = `photos/${i}${ext}`;
 const testImg = new Image();
-
 testImg.onload = () => {
 if (!loaded) {
 loaded = true;
 img.src = src;
 }
 };
-
 testImg.src = src;
 });
 
@@ -204,50 +202,67 @@ gallery.appendChild(div);
 }
 }
 
+// Play voice note
 function playVoiceNote() {
-document.getElementById('voiceNote').play().catch(()=>{});
+const voice = document.getElementById('voiceNote');
+voice.play().catch(() => {});
 }
 
-// ⭐ ONLY ADDITION
-let secretAdded = false;
-
+// ORIGINAL FLOATERS (UNCHANGED)
 function createFloater() {
 const floater = document.createElement('div');
 floater.className = 'floating';
+floater.innerText = ['🐰', '❤️', '💕', '💖', '🌸', '✨'][Math.floor(Math.random() * 6)];
 
-const emojis = ['🐰','❤️','💕','💖','🌸','✨'];
-let emoji = emojis[Math.floor(Math.random()*emojis.length)];
-
-if (!secretAdded && emoji === '💖') {
-secretAdded = true;
-floater.style.pointerEvents = 'auto';
-floater.style.cursor = 'pointer';
-
-floater.onclick = () => {
-window.open("https://drive.google.com/drive/folders/1aZEU1bU5fUCQU2qoRf3hbQBnrNM_mEum?usp=sharing","_blank");
-};
-}
-
-floater.innerText = emoji;
-
-floater.style.left = Math.random()*100+'vw';
-floater.style.fontSize = (Math.random()*28+22)+'px';
-floater.style.animationDuration = (Math.random()*22+24)+'s';
-floater.style.opacity = Math.random()*0.35+0.35;
+floater.style.left = Math.random() * 100 + 'vw';
+floater.style.fontSize = (Math.random() * 28 + 22) + 'px';
+floater.style.animationDuration = (Math.random() * 22 + 24) + 's';
+floater.style.opacity = Math.random() * 0.35 + 0.35;
 
 document.body.appendChild(floater);
-setTimeout(()=>floater.remove(),50000);
+setTimeout(() => floater.remove(), 50000);
 }
 
+// ⭐ SECRET HEART (LEFT SIDE, SAME PATH ALWAYS)
+function createSecretHeart() {
+const heart = document.createElement('div');
+heart.className = 'floating';
+heart.innerText = '💖';
+
+// FIXED LEFT POSITION
+heart.style.left = '5vw';
+
+// SAME SIZE + STYLE EVERY TIME
+heart.style.fontSize = '30px';
+heart.style.animationDuration = '28s';
+heart.style.opacity = '0.5';
+
+// clickable
+heart.style.pointerEvents = 'auto';
+heart.style.cursor = 'pointer';
+
+heart.onclick = () => {
+window.open("https://drive.google.com/drive/folders/1aZEU1bU5fUCQU2qoRf3hbQBnrNM_mEum?usp=sharing", "_blank");
+};
+
+document.body.appendChild(heart);
+setTimeout(() => heart.remove(), 50000);
+}
+
+// Initialize
 window.onload = () => {
 loadGallery();
 
-setInterval(createFloater,900);
-for (let i=0;i<14;i++){
-setTimeout(createFloater,i*700);
+// normal floaters
+setInterval(createFloater, 900);
+for (let i = 0; i < 14; i++) {
+setTimeout(createFloater, i * 700);
 }
-};
 
+// secret heart (same path every time)
+createSecretHeart();
+setInterval(createSecretHeart, 12000);
+};
 </script>
 </body>
 </html>
