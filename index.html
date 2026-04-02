@@ -156,54 +156,54 @@
         Forever your baby bear's favorite person 🐰</p>
     </footer>
 
-    <!-- Background Music -->
     <audio id="bgMusic" loop>
         <source src="song.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Voice Note -->
     <audio id="voiceNote">
         <source src="voice-note.mp3" type="audio/mpeg">
     </audio>
 
     <script>
-        // Create gallery that tries both .jpg and .JPG
         function loadGallery() {
             const gallery = document.getElementById('gallery');
             const extensions = ['.jpg', '.JPG', '.jpeg', '.JPEG'];
 
             for (let i = 1; i <= 3; i++) {
-                const imgContainer = document.createElement('div');
-                
-                const img = document.createElement('img');
-                img.alt = `My Baby Bunny ${i}`;
+                const div = document.createElement('div');
 
-                // Try different extensions until one loads
+                const img = document.createElement('img');
+                img.alt = "My Baby Bunny";
+
                 let loaded = false;
+
                 extensions.forEach(ext => {
-                    if (!loaded) {
-                        const testImg = new Image();
-                        testImg.src = `photos/${i}${ext}`;
-                        testImg.onload = () => {
-                            if (!loaded) {
-                                loaded = true;
-                                img.src = `photos/${i}${ext}`;
-                            }
-                        };
-                    }
+                    if (loaded) return;
+
+                    const testSrc = `photos/${i}${ext}`;
+                    const testImg = new Image();
+
+                    testImg.onload = () => {
+                        if (!loaded) {
+                            loaded = true;
+                            img.src = testSrc;
+                        }
+                    };
+
+                    testImg.src = testSrc;
                 });
 
-                // Fallback if none load
+                // Fallback if photo doesn't exist
                 img.onerror = () => {
-                    img.src = 'https://via.placeholder.com/600x600/ffe0ff/ffffff?text=Photo+' + i;
+                    img.src = `https://via.placeholder.com/600x600/ff9ef8/ffffff?text=My+Baby+Bunny`;
                 };
 
-                imgContainer.appendChild(img);
-                gallery.appendChild(imgContainer);
+                div.appendChild(img);
+                gallery.appendChild(div);
             }
         }
 
-        // Gentle floating background emojis
+        // Floating emojis
         function createFloater() {
             const floater = document.createElement('div');
             floater.className = 'floating';
@@ -213,11 +213,9 @@
             floater.style.animationDuration = (Math.random() * 22 + 24) + 's';
             floater.style.opacity = Math.random() * 0.35 + 0.35;
             document.body.appendChild(floater);
-
             setTimeout(() => floater.remove(), 50000);
         }
 
-        // Initialize everything
         window.onload = () => {
             loadGallery();
 
@@ -226,7 +224,7 @@
                 setTimeout(createFloater, i * 700);
             }
 
-            // Play background music on first tap anywhere
+            // Play song on first tap
             document.addEventListener('click', (e) => {
                 const bgMusic = document.getElementById('bgMusic');
                 if (bgMusic.paused && !e.target.closest('.voice-btn')) {
