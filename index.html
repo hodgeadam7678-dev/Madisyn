@@ -1,225 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy 2 Months, My Sweet Baby Bear 🐰</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <title>Happy 2 Months, My Sweet Baby Bear 🐰</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap');
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap');
+        html { scroll-behavior: smooth; }
 
-body {
-    margin: 0;
-    padding-top: 90px;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    overflow-x: hidden;
-    background: linear-gradient(135deg, #ff9ef8, #c79fff, #ff6eff);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-}
+        body {
+            margin: 0;
+            padding-top: 90px;
+            font-family: 'Poppins', sans-serif;
+            color: #ff8fa3;
+            text-align: center;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #ff9ef8, #c79fff, #ff6eff);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            position: relative;
+        }
 
-/* background animation */
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-/* spider webs */
-body::before, body::after {
-    content: "";
-    position: fixed;
-    width: 180px;
-    height: 180px;
-    background: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 2px);
-    background-size: 20px 20px;
-    opacity: 0.15;
-}
+        .container { 
+            max-width: 850px; 
+            margin: 0 auto; 
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
 
-body::before { top: 0; left: 0; }
-body::after { top: 0; right: 0; }
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.8rem;
+            color: white;
+            text-shadow: 0 0 25px rgba(255,255,255,0.9), 0 0 40px #ff6eff;
+            margin: 20px 0 10px;
+        }
 
-.container {
-    max-width: 850px;
-    margin: auto;
-    padding: 20px;
-}
+        .subtitle { font-size: 1.7rem; color: #ffe0ff; margin-bottom: 30px; }
 
-h1 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 3.5rem;
-    color: white;
-    animation: glow 3s infinite;
-}
+        section {
+            background: rgba(255,255,255,0.22);
+            border-radius: 40px;
+            padding: 45px 35px;
+            margin: 40px auto;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255,255,255,0.5);
+            position: relative;
+            z-index: 2;
+        }
 
-@keyframes glow {
-    0%,100% { text-shadow: 0 0 20px #fff; }
-    50% { text-shadow: 0 0 40px #ff6eff; }
-}
+        .voice-btn {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        .voice-btn:hover {
+            transform: scale(1.08);
+            background: #ff6eff;
+            box-shadow: 0 12px 25px rgba(255, 110, 239, 0.5);
+        }
 
-.subtitle { color: white; }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 25px;
+            border: 8px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: 0.4s;
+        }
+        .gallery img:hover { transform: scale(1.06) rotate(2deg); }
 
-/* floating boxes */
-section {
-    background: rgba(255,255,255,0.2);
-    padding: 40px;
-    margin: 40px 0;
-    border-radius: 30px;
-    backdrop-filter: blur(10px);
-    animation: float 6s ease-in-out infinite;
-}
+        .message { line-height: 1.75; font-size: 1.2rem; color: white; }
 
-@keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-}
+        footer {
+            margin-top: 60px;
+            padding: 30px;
+            font-size: 1.3rem;
+            color: #ffe0ff;
+            position: relative;
+            z-index: 2;
+        }
 
-section:hover {
-    transform: translateY(-10px) scale(1.02);
-}
+        .floating {
+            position: fixed;
+            top: -80px;
+            z-index: 1;
+            pointer-events: none;
+            animation: floatUp linear infinite;
+            opacity: 0.45;
+        }
 
-/* button */
-.voice-btn {
-    padding: 15px 30px;
-    border-radius: 40px;
-    border: none;
-    background: #ff4d6d;
-    color: white;
-    cursor: pointer;
-}
-
-.voice-btn:hover {
-    transform: scale(1.1);
-    background: #ff6eff;
-}
-
-/* gallery */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    gap: 20px;
-}
-
-.gallery img {
-    width: 100%;
-    border-radius: 20px;
-    transition: 0.4s;
-}
-
-.gallery img:hover {
-    transform: scale(1.05) rotate(2deg);
-}
-
-/* floating emojis */
-.floating {
-    position: fixed;
-    top: -80px;
-    animation: floatUp linear infinite;
-}
-
-@keyframes floatUp {
-    0% { transform: translateY(110vh); }
-    100% { transform: translateY(-100px); }
-}
-
-.message {
-    color: white;
-    line-height: 1.6;
-    font-size: 1.2rem;
-}
-</style>
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
-    <h1>Happy 2 Months, Madi 🐰💕</h1>
-    <p class="subtitle">My sweet baby bear 💖</p>
+    <div class="container">
+        <h1>Happy 2 Months, Madi 🐰💕</h1>
+        <p class="subtitle">My sweet baby bear • my precious bunny • my rabbit • my doll • my love</p>
 
-    <section>
-        <h2 style="color:white;">My Love Note to You</h2>
-        <div id="typedMessage" class="message"></div>
+        <section id="message">
+            <h2 style="color:white; font-size:2.2rem; margin-bottom:25px;">My Love Note to You</h2>
+            <div class="message">
+                <p>Hey my sweet baby bear…</p>
+                <p>I can’t believe we’re already at 2 months together. These past two months with you have been so amazing. Time with you just flies by because every single day feels so good and easy.</p>
+                
+                <p>Baby, I love you so much. I’m really grateful to have you in my life and to be able to call you mine. You make me feel amazing in a way I’ve never felt for anyone before. Every time I see your face, my heart lights up and I can’t stop smiling. When we’re on FT and you fall asleep, I just sit there most of the time admiring how cute and calm you look. Those beautiful eyes of yours, my love… they’re so perfect. They draw me in like nothing else ever could.</p>
+                
+                <p>I’m so happy I get to be your first boyfriend who actually treats you right. I love that I’m the one you’ve opened up to the most. Even though you’re still working through things, I’m really proud of you and I’m never going anywhere.</p>
+                
+                <p>My rabbit, my doll, my sweet girl… you’re my everything. I’m genuinely obsessed with you. I only have eyes for you. I’m gonna try my best every single day to make you the happiest girl in the world.</p>
+            </div>
 
-        <button class="voice-btn" onclick="playVoiceNote()">
-            🎤 Play My Voice Note
-        </button>
-    </section>
+            <button class="voice-btn" onclick="playVoiceNote()">
+                🎤 Play My Voice Note 💌<br>
+                <small style="font-size:0.9rem; opacity:0.9;">Hear me reading this just for you, baby bear 🐰</small>
+            </button>
+        </section>
 
-    <section>
-        <h2 style="color:white;">My Baby Bunny 🐰</h2>
-        <div class="gallery" id="gallery"></div>
-    </section>
-</div>
+        <section id="photos">
+            <h2 style="color:white; font-size:2.2rem; margin-bottom:20px;">My Baby Bunny 🐰</h2>
+            <div class="gallery" id="gallery"></div>
+        </section>
+    </div>
 
-<audio id="voiceNote">
-    <source src="voice-note.mp3" type="audio/mpeg">
-</audio>
+    <footer>
+        <p>I love you so so much, more than I can even explain ❤️<br>
+        Forever your baby bear's favorite person 🐰</p>
+    </footer>
 
-<script>
-// 💬 message
-const message = `Hey my sweet baby bear…
+    <!-- Background Music - Auto plays on page load -->
+    <audio id="bgMusic" loop autoplay>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
 
-I can’t believe we’re already at 2 months together. These past two months with you have been so amazing. Time with you just flies by because every single day feels so good and easy.
+    <!-- Voice Note - Only plays when button is clicked -->
+    <audio id="voiceNote">
+        <source src="voice-note.mp3" type="audio/mpeg">
+    </audio>
 
-Baby, I love you so much. I’m really grateful to have you in my life and to be able to call you mine. You make me feel amazing in a way I’ve never felt for anyone before. Every time I see your face, my heart lights up and I can’t stop smiling.
+    <script>
+        // Load photos (supports .jpg and .JPG)
+        function loadGallery() {
+            const gallery = document.getElementById('gallery');
+            const extensions = ['.jpg', '.JPG', '.jpeg', '.JPEG'];
 
-I’m so happy I get to be your first boyfriend who actually treats you right.
+            for (let i = 1; i <= 3; i++) {
+                const div = document.createElement('div');
+                const img = document.createElement('img');
+                img.alt = "My Baby Bunny";
 
-My rabbit, my doll, my sweet girl… you’re my everything.`;
+                let loaded = false;
 
-// typing effect
-function typeText(text, el, speed=28) {
-    let i = 0;
-    function type() {
-        if(i < text.length){
-            if(text[i] === "\n"){
-                el.innerHTML += "<br><br>";
-            } else {
-                el.innerHTML += text[i];
+                extensions.forEach(ext => {
+                    if (loaded) return;
+                    const src = `photos/${i}${ext}`;
+                    const testImg = new Image();
+                    testImg.onload = () => {
+                        if (!loaded) {
+                            loaded = true;
+                            img.src = src;
+                        }
+                    };
+                    testImg.src = src;
+                });
+
+                img.onerror = () => {
+                    img.src = `https://via.placeholder.com/600x600/ff9ef8/ffffff?text=My+Baby+Bunny`;
+                };
+
+                div.appendChild(img);
+                gallery.appendChild(div);
             }
-            i++;
-            setTimeout(type, speed);
         }
-    }
-    type();
-}
 
-// gallery
-function loadGallery() {
-    const gallery = document.getElementById('gallery');
-    for (let i = 1; i <= 3; i++) {
-        const img = document.createElement('img');
-        img.src = `photos/${i}.jpg`;
-        gallery.appendChild(img);
-    }
-}
+        // Play voice note only when button clicked
+        function playVoiceNote() {
+            const voice = document.getElementById('voiceNote');
+            voice.play().catch(() => {});
+        }
 
-// voice note
-function playVoiceNote(){
-    document.getElementById("voiceNote").play();
-}
+        // Floating emojis
+        function createFloater() {
+            const floater = document.createElement('div');
+            floater.className = 'floating';
+            floater.innerText = ['🐰', '❤️', '💕', '💖', '🌸', '✨'][Math.floor(Math.random() * 6)];
+            floater.style.left = Math.random() * 100 + 'vw';
+            floater.style.fontSize = (Math.random() * 28 + 22) + 'px';
+            floater.style.animationDuration = (Math.random() * 22 + 24) + 's';
+            floater.style.opacity = Math.random() * 0.35 + 0.35;
+            document.body.appendChild(floater);
+            setTimeout(() => floater.remove(), 50000);
+        }
 
-// floating emojis
-function createFloater() {
-    const f = document.createElement("div");
-    f.className = "floating";
-    f.innerText = ["🐰","💖","✨"][Math.floor(Math.random()*3)];
-    f.style.left = Math.random()*100+"vw";
-    f.style.fontSize = "24px";
-    f.style.animationDuration = (20+Math.random()*10)+"s";
-    document.body.appendChild(f);
-    setTimeout(()=>f.remove(),30000);
-}
+        // Initialize
+        window.onload = () => {
+            loadGallery();
 
-// init
-window.onload = () => {
-    loadGallery();
-    typeText(message, document.getElementById("typedMessage"), 28);
-
-    setInterval(createFloater, 800);
-};
-</script>
-
+            setInterval(createFloater, 900);
+            for (let i = 0; i < 14; i++) {
+                setTimeout(createFloater, i * 700);
+            }
+        };
+    </script>
 </body>
 </html>
+
